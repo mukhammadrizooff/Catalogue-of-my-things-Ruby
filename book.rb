@@ -1,23 +1,23 @@
 require_relative 'item'
 
 class Book < Item
-    attr_reader :publisher, :cover_state
-    
-    def initialize(publisher, cover, cover_state, id, published_date)
-        super(id, published_date)
-        @publisher = publisher
-        @cover_state = cover_state        
-    end
+  attr_reader :publisher, :cover_state
 
-    private
+  def initialize(publisher, _cover, cover_state, id, published_date)
+    super(id, published_date)
+    @publisher = publisher
+    @cover_state = cover_state
+  end
 
-    def can_be_archived?
-        (@cover_state == 'bad' || super)
-    end
+  private
 
-    def set_arguments
-        associations = super[1]
-        arguments = [@publisher, @cover_state, @id, @published_date]
-        [arguments, associations]
-    end
+  def can_be_archived?
+    (@cover_state == 'bad' || super)
+  end
+
+  def set_arguments
+    associations = super[1]
+    arguments = [@publisher, @cover_state, @id, @published_date]
+    [arguments, associations]
+  end
 end
