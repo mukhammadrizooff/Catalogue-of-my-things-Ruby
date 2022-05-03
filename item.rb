@@ -12,6 +12,21 @@ class Item
     @archived
   end
 
+  def genre=(genre)
+    @genre = genre
+    genre.add_item(self)
+  end
+
+  def label=(label)
+    @label = label
+    label.add_item(self)
+  end
+
+  def author=(author)
+    @author = author
+    author.add_item(self)
+  end
+
   private
 
   def can_be_archived?
