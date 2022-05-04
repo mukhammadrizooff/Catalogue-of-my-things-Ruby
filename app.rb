@@ -45,12 +45,12 @@ class App
   def list_genres
     puts 'Genres:'
     @load_genres.each do |genre|
-      puts "Genre name: #{genre.name}"
+      puts "Genre Name: #{genre.name}"
     end
   end
 
   def add_music_album
-    puts 'Album name: '
+    puts 'Album Name: '
     name = gets.chomp
 
     puts 'Date of publish [Enter date in format (yyyy-mm-dd)]'
@@ -64,16 +64,16 @@ class App
   end
 
   def add_book
-    print 'Please, type the book title: '
+    print 'Please, enter the book title: '
     title = gets.chomp
 
-    print 'Please, type the book publisher: '
+    print 'Please, enter the book publisher: '
     publisher = gets.chomp
 
-    print 'Please, type the book cover state: '
+    print 'Please, enter the book cover state: '
     cover_state = gets.chomp
 
-    print 'Date of publish [Enter date in format (yyyy-mm-dd)]: '
+    print 'Published Date [Enter date in format (yyyy-mm-dd)]: '
     publish_date = gets.chomp
     return unless publish_date
 
