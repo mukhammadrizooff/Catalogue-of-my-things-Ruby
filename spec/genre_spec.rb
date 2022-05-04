@@ -7,7 +7,7 @@ describe Genre do
 
   it 'genre should add a new item' do
     genre = Genre.new '1', 'pop'
-    item = Item.new Random.rand(1..100), '2010-10-10'
+    item = Item.new Random.rand(1..100), 'name', '2010-10-10'
     genre.add_item(item)
     expect(genre.items.length).to be 1
   end
