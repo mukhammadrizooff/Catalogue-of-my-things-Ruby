@@ -1,28 +1,31 @@
 require_relative 'app'
-require 'fileutils'
 
-def main
-  app = App.new
-  loop do
-    system('clear')
-    puts 'Welcome to Catalog of my stuff!'
-    puts
-    puts "Please choose an option by entering a number:
-  1 - List all books
-  2 - List all music albums
-  3 - List of games
-  4 - List all genres (e.g 'Comedy', 'Thriller')
-  5 - List all labels (e.g. 'Gift', 'New')
-  6 - List all authors (e.g. 'Stephen King')
-  7 - Add a book
-  8 - Add a music album
-  9 - Add a game
-  10 - Exit"
-    choice = gets.chomp.to_i
-
-    break if app.run(choice) == 'exit'
+class Main
+  def initialize
+    @app = App.new
   end
 
-  puts "Thank you for using this app!\n\n"
+  def start
+    input = 0
+    while input.to_i < 10
+      puts 'Please select 1 option below
+        1 - List all books
+        2 - List all music albums
+        3 - List all games
+        4 - List all genres (e.g "Comedy", "Thriller")
+        5 - List all labels (e.g "Gift", "New")
+        6 - List all authors (e.g "Stephan King")
+        7 - Add a book
+        8 - Add music album
+        9 - Add a game
+        10 - Exit
+        '
+      input = gets.chomp
+      @app.option_selector(input)
+    end
+    puts 'Thank you, bye!'
+  end
 end
-main
+
+main = Main.new
+main.start

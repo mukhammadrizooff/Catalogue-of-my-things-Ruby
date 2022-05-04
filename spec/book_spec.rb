@@ -2,12 +2,12 @@ require_relative '../book'
 
 describe Book do
   before(:each) do
-    @book = Book.new('publisher', 'good', 1, Date.new(2002, 3, 2).to_s)
+    @book = Book.new('name', 'publisher', 'good', Date.new(2002, 3, 2).to_s)
   end
 
   context '#move_to_archive' do
     it "should return true if cover_state equals 'bad', even if parent's method returns false" do
-      bad_book = Book.new('publisher', 'bad', 1, Date.new(2015, 2, 3).to_s)
+      bad_book = Book.new('name', 'publisher', 'bad', Date.new(2015, 2, 3).to_s)
       expect(bad_book.move_to_archive).to be true
     end
 
@@ -16,7 +16,7 @@ describe Book do
     end
 
     it 'should return false otherwise' do
-      good_book = Book.new('publisher', 'good', 1, Date.new(2015, 2, 3).to_s)
+      good_book = Book.new('name', 'publisher', 'good', Date.new(2015, 2, 3).to_s)
       expect(good_book.move_to_archive).to be false
     end
   end
