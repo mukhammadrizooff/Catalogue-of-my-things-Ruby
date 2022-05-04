@@ -5,33 +5,33 @@ require_relative 'book'
 require_relative 'label'
 
 class App
- def initialize
- @music_albums = []
- @load_genres = []
- @books = []
- @labels = []
-end
+  def initialize
+    @music_albums = []
+    @load_genres = []
+    @books = []
+    @labels = []
+  end
 
-def option_selector(user_input)
+  def option_selector(user_input)
     case user_input
     when '1'
       list_books
     when '2'
       list_music_albums
     when '3'
-      puts "list all games method here"
+      puts 'list all games method here'
     when '4'
       list_genres
     when '5'
       list_labels
     when '6'
-      puts "list author methods here"
+      puts 'list author methods here'
     when '7'
       add_book
     when '8'
       add_music_album
     when '9'
-      puts "add game method here"
+      puts 'add game method here'
     end
   end
 
@@ -62,7 +62,6 @@ def option_selector(user_input)
     @music_albums.push(MusicAlbum.new(name, publish_date, on_spotify))
     puts 'Music album created'
   end
-
 
   def add_book
     print 'Please, type the book title: '
@@ -96,8 +95,3 @@ def option_selector(user_input)
     end
   end
 end
-
-
-
-
-

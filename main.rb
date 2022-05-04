@@ -1,14 +1,14 @@
 require_relative 'app'
 
 class Main
-    def initialize
-      @app = App.new
-    end
-  
-    def start
-      input = 0
-      while input.to_i < 10
-        puts 'Please select 1 option below
+  def initialize
+    @app = App.new
+  end
+
+  def start
+    input = 0
+    while input.to_i < 10
+      puts 'Please select 1 option below
         1 - List all books
         2 - List all music albums
         3 - List all games
@@ -20,13 +20,12 @@ class Main
         9 - Add a game
         10 - Exit
         '
-        input = gets.chomp
-        @app.option_selector(input)
-      end
-      puts 'Thank you, bye!'
+      input = gets.chomp
+      @app.option_selector(input)
     end
+    puts 'Thank you, bye!'
   end
-  
-  main = Main.new
-  main.start
-  
+end
+
+main = Main.new
+main.start
