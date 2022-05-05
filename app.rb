@@ -3,12 +3,12 @@ require_relative 'music_album'
 require_relative 'genre'
 require_relative 'book'
 require_relative 'label'
-require_relative './storage/author_method.rb'
-require_relative './storage/games_method.rb'
-require_relative './storage/book_method.rb'
-require_relative './storage/genre_method.rb'
-require_relative './storage/label_method.rb'
-require_relative './storage/music_album_method.rb'
+require_relative './storage/author_method'
+require_relative './storage/games_method'
+require_relative './storage/book_method'
+require_relative './storage/genre_method'
+require_relative './storage/label_method'
+require_relative './storage/music_album_method'
 
 class App
   include AuthorsDataController
