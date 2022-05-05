@@ -6,9 +6,7 @@ require_relative 'label'
 require_relative 'author_method'
 require_relative 'games_method'
 
-
 class App
-
   include AuthorsMethod
   include GamesMethod
 
@@ -112,7 +110,7 @@ class App
     @books.push(Book.new(title, publisher, cover_state, publish_date))
     puts 'Book created successfully'
   end
-  
+
   def add_game
     puts 'Please write multiplayer: '
     multiplayer = gets.chomp
