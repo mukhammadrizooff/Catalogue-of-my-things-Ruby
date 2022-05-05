@@ -4,16 +4,20 @@ require_relative 'genre'
 require_relative 'book'
 require_relative 'label'
 require_relative 'author_method'
+require_relative 'games_method'
+
 
 class App
 
   include AuthorsMethod
+  include GamesMethod
 
   def initialize
     @music_albums = []
+    @games = load_games
     @load_genres = []
     @books = []
-    @authors = []
+    @authors = load_authors
     @labels = []
   end
 
@@ -36,7 +40,7 @@ class App
     when '8'
       add_music_album
     when '9'
-      puts 'add game method here'
+      puts add_game
     end
   end
 
@@ -66,6 +70,14 @@ class App
     puts 'There are no authors yet!' if @authors.empty?
     @authors.each do |author|
       puts "first name: #{author.first_name}, last name #{author.last_name}}"
+    end
+  end
+
+  def list_all_games
+    puts 'Music Albums:'
+    @games.each do |games|
+      puts "Multiplayer: #{games.multiplayer}, Publish Date: #{games.publish_date},
+      Last played date: #{games.last_played_date}"
     end
   end
 
@@ -99,6 +111,20 @@ class App
 
     @books.push(Book.new(title, publisher, cover_state, publish_date))
     puts 'Book created successfully'
+  end
+  
+  def add_game
+    puts 'Please write multiplayer: '
+    multiplayer = gets.chomp
+
+    puts 'Please write date of publish [Enter date in format (yyyy-mm-dd)]'
+    publish_date = gets.chomp
+
+    puts 'Please write last played date [Enter date in format (yyyy-mm-dd)]'
+    last_played_date = gets.chomp
+
+    @games.push(Game.new(multiplayer, publish_date, last_played_date))
+    puts 'Game is created'
   end
 
   def list_books

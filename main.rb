@@ -23,6 +23,7 @@ class Main
       input = gets.chomp
       @app.option_selector(input)
     end
+    @app.create_games
     puts 'Thank you, bye!'
   end
 end
