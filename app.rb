@@ -3,12 +3,17 @@ require_relative 'music_album'
 require_relative 'genre'
 require_relative 'book'
 require_relative 'label'
+require_relative 'author_method'
 
 class App
+
+  include AuthorsMethod
+
   def initialize
     @music_albums = []
     @load_genres = []
     @books = []
+    @authors = []
     @labels = []
   end
 
@@ -25,7 +30,7 @@ class App
     when '5'
       list_labels
     when '6'
-      puts 'list author methods here'
+      list_all_authors
     when '7'
       add_book
     when '8'
@@ -46,6 +51,21 @@ class App
     puts 'Genres:'
     @load_genres.each do |genre|
       puts "Genre Name: #{genre.name}"
+    end
+  end
+
+  def list_all_authors
+    puts 'Authors:'
+    @authors.each do |author|
+      puts "First Name: #{author.first_name} "
+      puts "Last Name: #{author.last_name} "
+    end
+  end
+
+  def list_authors
+    puts 'There are no authors yet!' if @authors.empty?
+    @authors.each do |author|
+      puts "first name: #{author.first_name}, last name #{author.last_name}}"
     end
   end
 
