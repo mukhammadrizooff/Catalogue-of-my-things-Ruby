@@ -1,4 +1,4 @@
-require_relative '../author'
+require_relative 'helper'
 require 'yaml'
 
 describe Author do

@@ -21,7 +21,7 @@ CREATE TABLE author(
 --Item
 CREATE TABLE item (
     id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    publish_date DATE,
+    published_date DATE,
     archived BOOLEAN,
     genre_id INT,
     author_id INT,
@@ -34,7 +34,7 @@ CREATE TABLE item (
 -- Book
 CREATE TABLE book(
   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  publish_date DATE,
+  published_date DATE,
   publisher VARCHAR(100),
   cover_state VARCHAR(4),
   genre_id INT,
@@ -48,7 +48,7 @@ CREATE TABLE book(
 -- Music Album
 CREATE TABLE MUSICALBUM(
   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  publish_date DATE,
+  published_date DATE,
   on_spotify BOOLEAN,
   genre_id INT,
   author_id INT,
@@ -63,7 +63,7 @@ CREATE TABLE game(
   id INT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   multiplayer BOOLEAN,
   last_played_at DATE,
-  publish_date DATE,
+  published_date DATE,
   genre_id INT,
   author_id INT,
   label_id INT,

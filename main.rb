@@ -18,12 +18,13 @@ class Main
         7 - Add a book
         8 - Add music album
         9 - Add a game
-        10 - Exit
-        '
+        10 - Exit  '
       input = gets.chomp
       @app.option_selector(input)
     end
     @app.create_games
+    @app.create_music_album
+    @app.save_books
     puts 'Thank you, bye!'
   end
 end

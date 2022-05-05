@@ -1,7 +1,7 @@
 require 'json'
-require_relative 'game'
+require_relative '../game'
 
-module GamesMethod
+module GamesDataController
   def load_games
     data = []
     file = './json_files/games.json'
@@ -18,7 +18,7 @@ module GamesMethod
   def create_games
     data = []
     @games.each do |game|
-      data.push({ multiplayer: game.multiplayer, publish_date: game.published_date,
+      data.push({ multiplayer: game.multiplayer, published_date: game.published_date,
                   last_played_date: game.last_played_date })
     end
     open('./json_files/games.json', 'w') { |f| f << JSON.generate(data) }

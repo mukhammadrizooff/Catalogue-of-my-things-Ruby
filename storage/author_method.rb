@@ -1,7 +1,7 @@
 require 'json'
-require_relative 'author'
+require_relative '../author'
 
-module AuthorsMethod
+module AuthorsDataController
   def load_authors
     data = []
     file = './json_files/authors.json'

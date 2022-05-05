@@ -3,20 +3,28 @@ require_relative 'music_album'
 require_relative 'genre'
 require_relative 'book'
 require_relative 'label'
-require_relative 'author_method'
-require_relative 'games_method'
+require_relative './storage/author_method'
+require_relative './storage/games_method'
+require_relative './storage/book_method'
+require_relative './storage/genre_method'
+require_relative './storage/label_method'
+require_relative './storage/music_album_method'
 
 class App
-  include AuthorsMethod
-  include GamesMethod
+  include AuthorsDataController
+  include GamesDataController
+  include BooksDataController
+  include MusicAlbumDataController
+  include GenreDataController
+  include LabelsDataController
 
   def initialize
-    @music_albums = []
+    @music_albums = load_music_albums
     @games = load_games
-    @load_genres = []
-    @books = []
+    @load_genres = load_genres
+    @books = load_books
     @authors = load_authors
-    @labels = []
+    @labels = load_labels
   end
 
   def option_selector(user_input)
@@ -45,7 +53,7 @@ class App
   def list_music_albums
     puts 'Music Albums'
     @music_albums.each do |music_album|
-      puts "Name: #{music_album.name}, Publish Date: #{music_album.publish_date}, On Spotify: #{music_album.on_spotify}"
+      puts "Name: #{music_album.name}, Publish Date: #{music_album.published_date}, On Spotify: #{music_album.on_spotify}"
     end
   end
 
@@ -74,7 +82,7 @@ class App
   def list_all_games
     puts 'Music Albums:'
     @games.each do |games|
-      puts "Multiplayer: #{games.multiplayer}, Publish Date: #{games.publish_date},
+      puts "Multiplayer: #{games.multiplayer}, Publish Date: #{games.published_date},
       Last played date: #{games.last_played_date}"
     end
   end
@@ -84,12 +92,12 @@ class App
     name = gets.chomp
 
     puts 'Date of publish [Enter date in format (yyyy-mm-dd)]'
-    publish_date = gets.chomp
+    published_date = gets.chomp
 
     puts 'Is it available on Spotify? Y/N'
     on_spotify = gets.chomp.downcase == 'y' || false
 
-    @music_albums.push(MusicAlbum.new(name, publish_date, on_spotify))
+    @music_albums.push(MusicAlbum.new(name, published_date, on_spotify))
     puts 'Music album created'
   end
 
@@ -104,10 +112,10 @@ class App
     cover_state = gets.chomp
 
     print 'Published Date [Enter date in format (yyyy-mm-dd)]: '
-    publish_date = gets.chomp
-    return unless publish_date
+    published_date = gets.chomp
+    return unless published_date
 
-    @books.push(Book.new(title, publisher, cover_state, publish_date))
+    @books.push(Book.new(title, publisher, cover_state, published_date))
     puts 'Book created successfully'
   end
 
@@ -116,12 +124,12 @@ class App
     multiplayer = gets.chomp
 
     puts 'Please write date of publish [Enter date in format (yyyy-mm-dd)]'
-    publish_date = gets.chomp
+    published_date = gets.chomp
 
     puts 'Please write last played date [Enter date in format (yyyy-mm-dd)]'
     last_played_date = gets.chomp
 
-    @games.push(Game.new(multiplayer, publish_date, last_played_date))
+    @games.push(Game.new(multiplayer, published_date, last_played_date))
     puts 'Game is created'
   end
 

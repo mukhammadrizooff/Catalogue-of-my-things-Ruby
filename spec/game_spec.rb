@@ -1,4 +1,4 @@
-require_relative '../game'
+require_relative 'helper'
 
 require 'yaml'
 

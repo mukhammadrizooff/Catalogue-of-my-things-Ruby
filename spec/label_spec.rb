@@ -1,4 +1,4 @@
-require_relative '../label'
+require_relative 'helper'
 
 describe Label do
   before(:each) do
