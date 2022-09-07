@@ -26,7 +26,7 @@ To get a local copy of this project:
 
 Clone this repository or download the Zip folder:
 ```
-git clone https://github.com/ShoiraTa/ruby-capstone.git
+git clone https://github.com/mukhammadrizooff/Catalogue-of-my-things-Ruby.git
 ```
 
 To get started, In the root directory run:
