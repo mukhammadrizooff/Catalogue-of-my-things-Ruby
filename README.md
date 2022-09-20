@@ -2,7 +2,7 @@
 
 This app is develped in ruby and allows users to:
 
-- Ruby console app with an user interface.
+- Ruby console app with an user interface
 - You can add books or music albums, and you can create a label or genre for the said item.
 - The application preserves user data by using JSON files while exiting the application. 
 
